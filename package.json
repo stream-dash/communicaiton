@@ -4,6 +4,7 @@
   "description": "Server communication client for StreamDash",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build src/index.js",
     "lint": "flow && xo",
     "test": "flow && xo && ava"
   },
@@ -35,6 +36,7 @@
     "eslint-plugin-flow-header": "^0.2.0",
     "eslint-plugin-flowtype": "^3.2.1",
     "flow-bin": "^0.91.0",
+    "parcel-bundler": "^1.11.0",
     "pre-commit": "^1.2.2",
     "sinon": "^7.2.3",
     "xo": "^0.24.0"
