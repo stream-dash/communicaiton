@@ -1,0 +1,25 @@
+{
+  "name": "@streamdash/communication",
+  "version": "1.0.0",
+  "description": "Server communication client for StreamDash",
+  "main": "index.js",
+  "scripts": {
+    "test": "flow && xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stream-dash/communication.git"
+  },
+  "keywords": [
+    "streamdash",
+    "obs",
+    "twitch",
+    "streaming"
+  ],
+  "author": "Kolya Venturi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stream-dash/communication/issues"
+  },
+  "homepage": "https://github.com/stream-dash/communication#readme"
+}
