@@ -4,11 +4,14 @@ type Params = {
   name: string
 };
 
+type Subscriber = {
+  onMessage: Function
+};
+
 export default class Layer {
   name: string;
 
-  subscribers: Array<any> = [];
-  publishers: Array<any> = [];
+  subscribers: Array<Subscriber> = [];
   routes: {[string]: string} = {};
 
   constructor({name}: Params) {
@@ -20,11 +23,13 @@ export default class Layer {
     this.routes[input] = output;
   }
 
-  subscribe(subscriber: any) {
+  subscribe(subscriber: Subscriber) {
     this.subscribers.push(subscriber);
   }
 
-  addPublisher(publisher: any) {
-    this.publishers.push(publisher);
+  publish(data: any) {
+    for (const subscriber of this.subscribers) {
+      subscriber.onMessage(data);
+    }
   }
 }

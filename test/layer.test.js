@@ -1,4 +1,5 @@
 import test from 'ava';
+import {stub} from 'sinon';
 import Layer from '../src/layer';
 
 test('can create a named layer', t => {
@@ -32,15 +33,21 @@ test('can accept subscribers', t => {
   t.is(layer.subscribers[1], subscriber2);
 });
 
-test('can accept publishers', t => {
+test('can publish to subscribers', t => {
+  const spyA = stub();
+  const spyB = stub();
+
   const layer = new Layer({name: 'test'});
 
-  const pub1 = Symbol('pub1');
-  const pub2 = Symbol('pub2');
+  const sub1 = {onMessage: spyA};
+  const sub2 = {onMessage: spyB};
 
-  layer.addPublisher(pub1);
-  layer.addPublisher(pub2);
+  layer.subscribe(sub1);
+  layer.subscribe(sub2);
 
-  t.is(layer.publishers[0], pub1);
-  t.is(layer.publishers[1], pub2);
+  const data = {msg: 'Hello'};
+  layer.publish(data);
+
+  t.true(spyA.calledWith(data));
+  t.true(spyB.calledWith(data));
 });
