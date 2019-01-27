@@ -4,6 +4,7 @@
   "description": "Server communication client for StreamDash",
   "main": "index.js",
   "scripts": {
+    "lint": "flow && xo",
     "test": "flow && xo && ava"
   },
   "repository": {
@@ -21,5 +22,71 @@
   "bugs": {
     "url": "https://github.com/stream-dash/communication/issues"
   },
-  "homepage": "https://github.com/stream-dash/communication#readme"
+  "homepage": "https://github.com/stream-dash/communication#readme",
+  "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "ava": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-xo": "^0.26.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flow-header": "^0.2.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "flow-bin": "^0.91.0",
+    "pre-commit": "^1.2.2",
+    "xo": "^0.24.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "xo": {
+    "parser": "babel-eslint",
+    "space": true,
+    "extends": [
+      "plugin:flowtype/recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "babel",
+      "flowtype",
+      "flow-header"
+    ],
+    "rules": {
+      "babel/semi": true,
+      "flow-header/flow-header": 2
+    },
+    "env": [
+      "node"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "overrides": [
+      {
+        "files": "**/*test.js",
+        "rules": {
+          "flow-header/flow-header": "off",
+          "import/no-unassigned-import": "off"
+        }
+      }
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ]
+  }
 }
