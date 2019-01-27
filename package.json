@@ -2,7 +2,7 @@
   "name": "@streamdash/communication",
   "version": "1.0.0",
   "description": "Server communication client for StreamDash",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "parcel build src/index.js",
     "lint": "flow && xo",
