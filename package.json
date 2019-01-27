@@ -25,6 +25,7 @@
   "homepage": "https://github.com/stream-dash/communication#readme",
   "devDependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@babel/register": "^7.0.0",
     "ava": "^1.2.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.1",
