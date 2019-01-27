@@ -3,7 +3,7 @@
 StreamDash communication layer
 
 ## Installing
-Install the layer with `npm i @streamdash/communication` or clone down the repo with `git clone git@gituh.com:stream-dash/communication.git`
+Install the layer with `npm i @streamdash/communication` or clone down the repo with `git clone git@github.com:stream-dash/communication.git`
 
 ## Building
 Builds are handled by [Parcel](https://parceljs.org) and can be run with `npm run build`.\
